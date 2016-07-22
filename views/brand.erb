@@ -1,20 +1,24 @@
 <h2>Here are stores where this <%= @brand.name %> is currently carried.</h2>
-<a class='btn btn-warning'href="/">Home</a>
-<div class="form-group">
-  <form class="" action="/brands/<%= @brand.id() %>" method="post">
-    <input name= "_method" type="hidden" value="delete">
-    <button class = "btn btn-danger" type="submit">Remove Store</button>
-  </form>
-  <form action="/brands/<%= @brand.id() %>" method="post">
-    <button type="submit" class="btn btn-warning">Update Name</button>
-    <input name="_method" type="hidden" value="patch">
-    <div class="form-group">
-      <label for="brand_name">Edit Brand Name</label>
-      <textarea rows="1" cols="10" id = "name" type="text" name="brand_name" value="<%= @brand.name %>" class="form-control"></textarea>
+<div class='row justify'>
+  <div class='col-lg-6'>
+    <form action="/brands/<%= @brand.id() %>" method="post">
+      <input class="" type="text" name="brand_name" id="brand_name">
+      <input name="_method" type="hidden" value="patch">
+      <button class="btn" type="submit" name="button">New Brand Name</button>
+    </form>
+    <hr>
+  </div>
+  <div class='col-lg-6'>
+    <div class="form-group justify">
+      <a class='btn btn-warning pull-right' href="/">Home</a>
+      <form action="/brands/<%= @brand.id() %>" method="post">
+        <input name="_method" type="hidden" value="delete">
+        <button class="btn btn-danger" type="submit">Remove Brand</button>
+      </form>
     </div>
-  </form>
+    <hr>
+  </div>
 </div>
-
 <div class="row container">
   <div class="col-xs-3">
     <div>
