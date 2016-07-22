@@ -1,6 +1,5 @@
 require('spec_helper')
 
-
 describe(Store) do
   it "can contain multiple brands of shoe" do
     shoeland = Store.create({:name => "Ultimate Shoe Land"})
@@ -18,5 +17,9 @@ describe(Store) do
     locker =  Store.create({:name => "The Hurt Locker"})
     nostore = Store.create({:name => "Z"})
     expect(Store.all()).to(eq([locker]))
+  end
+  it "should take the name of every new store object and capital case it" do
+    new_store = Store.create({:name => "shoeBeAst"})
+    expect(new_store.name).to(eq("Shoebeast"))
   end
 end

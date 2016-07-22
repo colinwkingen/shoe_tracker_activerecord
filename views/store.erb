@@ -1,21 +1,19 @@
 <h2>Here are the brands <%= @store.name %> carries and the other brands available.</h2>
 <a class='btn btn-warning'href="/">Home</a>
+<div class="input-group">
+  <form class="" action="/stores/<%= @store.id() %>" method="post">
+    <input name= "_method" type="hidden" value="delete">
+    <button class = "btn btn-danger" type="submit">Remove Store</button>
+  </form>
+  <form action="/stores/<%= @store.id() %>" method="post">
+    <button type="submit" class="btn btn-warning">Update Name</button>
+    <input name="_method" type="hidden" value="patch">
+    <label for="store_name">Edit Store Name</label>
+    <textarea rows="1" cols="10" id = "name" type="text" name="store_name" value="<%= @store.name %>" class="form-control"></textarea>
+  </form>
+</div>
 <div class="row container">
   <div class="col-xs-3">
-    <div class="container-fluid navbar">
-      <form class="" action="/stores/<%= @store.id() %>" method="post">
-        <input name= "_method" type="hidden" value="delete">
-        <button class = "btn btn-danger" type="submit">Remove Store</button>
-      </form>
-      <form action="/stores/<%= @store.id() %>" method="post">
-        <button type="submit" class="btn btn-warning">Update Name</button>
-        <input name="_method" type="hidden" value="patch">
-        <div class="form-group">
-          <label for="store_name">Edit Store Name</label>
-          <textarea rows="1" cols="10" id = "name" type="text" name="store_name" value="<%= @store.name %>" class="form-control"></textarea>
-        </div>
-      </form>
-    </div>
     <div>
       <h4>All brands.</h4>
       <ul>

@@ -18,4 +18,8 @@ describe(Brand) do
     emptybrand = Store.create({:name => "Z"})
     expect(Store.all()).to(eq([bootsy]))
   end
+  it "should take the name of every new brand object and capital case it" do
+    new_brand = Brand.create({:name => "realSANDAL"})
+    expect(new_brand.name).to(eq("Realsandal"))
+  end
 end
