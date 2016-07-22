@@ -16,6 +16,7 @@ can be updated, created and deleted.
 To recreate the database necessary for this app, make sure postgreSQL is installed on your
 system. Running bundle install will grab the necessary files, then Running
 
+$rake db:create
 $rake db:migrate
 
 to create the database.

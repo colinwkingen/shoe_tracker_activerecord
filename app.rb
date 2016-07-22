@@ -46,13 +46,13 @@ end
 patch('/stores/:id') do
   new_name = params['store_name']
   @this_store = Store.find(params['id']).update({:name => new_name})
-  redirect to ('/')
+  redirect to ('/stores/' + params['id'].to_s )
 end
 
 patch('/brands/:id') do
   new_name = params['brand_name']
   @this_brand = Brand.find(params['id']).update({:name => new_name})
-  redirect to ('/')
+  redirect to ('/brands/' + params['id'].to_s)
 end
 
 post('/brands/:brand_id/stores/:store_id') do
