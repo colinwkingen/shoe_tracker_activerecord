@@ -1,0 +1,43 @@
+h1 {
+  font-size: 5.5em;
+}
+
+body  {
+  color: #F6F6FF;
+  background-color: #333;
+  font-size: 1.3em;
+}
+
+.btn {
+  background-color: black;
+  color: white;
+  margin-left: 2em;
+}
+
+a {
+  font-size: 3em;
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration: none;
+  list-style: none;
+}
+
+a:hover {
+  color: #F0F0FA;
+  text-decoration: none;
+}
+li {
+  color: white;
+  text-align: center;
+  border-style: solid;
+}
+
+li:hover {
+  color: #000;
+  background-color: #666;
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}

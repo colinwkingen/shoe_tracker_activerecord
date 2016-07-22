@@ -12,11 +12,11 @@ require('./app')
 
 RSpec.configure do |config|
   config.after(:each) do
-    Brand.all().each() do |category|
-      category.destroy()
+    Brand.all().each() do |brand|
+      brand.destroy()
     end
-    Store.all().each() do |recipe|
-      recipe.destroy()
+    Store.all().each() do |store|
+      store.destroy()
     end
   end
 end

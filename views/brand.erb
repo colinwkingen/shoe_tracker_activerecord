@@ -1,0 +1,23 @@
+<h2>Here are stores where this brand is currently carried.</h2>
+
+<div class="row container">
+  <div class="col-xs-12">
+    <div>
+
+    </div>
+  </div>
+
+</div>
+<div class="row container">
+  <div class="col-xs-12">
+    <div>
+      <ul>
+        <% if @brand.stores %>
+          <% @brand.stores().each() do |store| %>
+            <li><%= store.name %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

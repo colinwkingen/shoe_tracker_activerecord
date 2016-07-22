@@ -1,4 +1,3 @@
-
 development:
   adapter: postgresql
   database: shoe_tracker_development
