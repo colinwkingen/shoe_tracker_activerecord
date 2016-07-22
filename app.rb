@@ -20,13 +20,51 @@ post('/stores') do
 end
 
 get('/brands/:id') do
+  @brand = Brand.find(params['id'])
   @stores = Store.all()
   @brands = Brand.all()
-  erb(:brands)
+  erb(:brand)
 end
 
 get('/stores/:id') do
+  @store = Store.find(params['id'])
   @stores = Store.all()
   @brands = Brand.all()
-  erb(:stores)
+  erb(:store)
+end
+
+delete('/stores/:id') do
+  Store.find(params['id']).destroy()
+  redirect to ('/')
+end
+
+delete('/brands/:id') do
+  Brand.find(params['id']).destroy()
+  redirect to ('/')
+end
+
+patch('/stores/:id') do
+  new_name = params['store_name']
+  @this_store = Store.find(params['id']).update({:name => new_name})
+  redirect to ('/stores/' + @this_store.id.to_s)
+end
+
+patch('/brands/:id') do
+  new_name = params['brand_name']
+  @this_brand = Brand.find(params['id']).update({:name => new_name})
+  redirect to ('/brands/' + @this_brand.id.to_s)
+end
+
+post('/brands/:brand_id/stores/:store_id') do
+  @this_brand = Brand.find(params['brand_id'])
+  @this_store = Store.find(params['store_id'])
+  @this_brand.stores.push(@this_store)
+  redirect to ('/brands/' + @this_brand.id.to_s)
+end
+
+post('/stores/:store_id/brands/:brand_id') do
+  @this_brand = Brand.find(params['brand_id'])
+  @this_store = Store.find(params['store_id'])
+  @this_store.brands.push(@this_brand)
+  redirect to ('/stores/' + @this_store.id.to_s)
 end

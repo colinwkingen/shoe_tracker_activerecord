@@ -1,0 +1,46 @@
+<h2>Here are the brands <%= @store.name %> carries and the other brands available.</h2>
+<a class='btn btn-warning'href="/">Home</a>
+<div class="row container">
+  <div class="col-xs-3">
+    <div class="container-fluid navbar">
+      <form class="" action="/stores/<%= @store.id() %>" method="post">
+        <input name= "_method" type="hidden" value="delete">
+        <button class = "btn btn-danger" type="submit">Remove Store</button>
+      </form>
+      <form action="/stores/<%= @store.id() %>" method="post">
+        <button type="submit" class="btn btn-warning">Update Name</button>
+        <input name="_method" type="hidden" value="patch">
+        <div class="form-group">
+          <label for="store_name">Edit Store Name</label>
+          <textarea rows="1" cols="10" id = "name" type="text" name="store_name" value="<%= @store.name %>" class="form-control"></textarea>
+        </div>
+      </form>
+    </div>
+    <div>
+      <h4>All brands.</h4>
+      <ul>
+      <% if @brands %>
+        <% @brands.each do |brand| %>
+          <li><%= brand.name %>
+            <form action="/stores/<%= @store.id() %>/brands/<%= brand.id() %>" method="post">
+              <button class = "btn" type="submit">Add Brand to Store</button>
+            </form>
+          </li>
+        <% end %>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="col-xs-3">
+    <div>
+      <h4>This stores that carry this brand.</h4>
+      <ul>
+        <% if @store.brands() %>
+          <% @store.brands().each() do |brand| %>
+            <li><%= brand.name %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
