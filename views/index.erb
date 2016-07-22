@@ -5,14 +5,14 @@
     <label for="new_brand">Add a brand to the list:</label>
     <form action="/brands" method="post">
       <input class="index_field" type="text" name="new_brand" id="new_brand">
-      <button class ="btn" type="submit" name="button">New Brand</button>
+      <button class="btn" type="submit" name="button">New Brand</button>
     </form>
     <hr>
     <h3>Current Brands:</h3>
     <ul>
       <% if @brands %>
         <% @brands.each() do |brand| %>
-          <a href='/brands/<%= brand.id %>'><li><%= brand.name %></li></a>
+          <a href='/brands/<%= brand.id %>'><li class="front-li"><%= brand.name %></li></a>
         <% end %>
       <% end %>
     </ul>
@@ -21,14 +21,14 @@
     <label for="new_store">Add a store to the list:</label>
     <form action="/stores" method="post">
       <input class="index_field" type="text" name="new_store" id="new_store">
-      <button class ="btn" type="submit" name="button">New Store</button>
+      <button class="btn" type="submit" name="button">New Store</button>
     </form>
     <hr>
     <h3>Current Stores:</h3>
     <ul>
       <% if @stores %>
         <% @stores.each() do |store| %>
-          <a href='/stores/<%= store.id %>'><li><%= store.name %></li></a>
+          <a href='/stores/<%= store.id %>'><li class="front-li"><%= store.name %></li></a>
         <% end %>
       <% end %>
     </ul>

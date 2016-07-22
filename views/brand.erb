@@ -1,8 +1,8 @@
-<h2>Here are stores where this <%= @brand.name %> is currently carried.</h2>
+<h2>Here are stores where <%= @brand.name %> is currently carried.</h2>
 <div class='row justify'>
   <div class='col-lg-6'>
     <form action="/brands/<%= @brand.id() %>" method="post">
-      <input class="" type="text" name="brand_name" id="brand_name">
+      <input type="text" name="brand_name" id="brand_name">
       <input name="_method" type="hidden" value="patch">
       <button class="btn" type="submit" name="button">New Brand Name</button>
     </form>
@@ -10,10 +10,10 @@
   </div>
   <div class='col-lg-6'>
     <div class="form-group justify">
-      <a class='btn btn-warning pull-right' href="/">Home</a>
+      <a class='btn pull-right' href="/">Home</a>
       <form action="/brands/<%= @brand.id() %>" method="post">
         <input name="_method" type="hidden" value="delete">
-        <button class="btn btn-danger" type="submit">Remove Brand</button>
+        <button class="btn" type="submit">Remove Brand</button>
       </form>
     </div>
     <hr>
@@ -28,7 +28,7 @@
         <% @stores.each do |store| %>
           <li><%= store.name %>
             <form action="/brands/<%= @brand.id() %>/stores/<%= store.id() %>" method="post">
-              <button class = "btn" type="submit">Add to Store to Brand</button>
+              <button class="btn" type="submit">Add to Store to Brand</button>
             </form>
           </li>
         <% end %>

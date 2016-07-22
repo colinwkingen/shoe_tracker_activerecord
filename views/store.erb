@@ -10,10 +10,10 @@
   </div>
   <div class='col-lg-6'>
     <div class="form-group justify">
-      <a class='btn btn-warning pull-right' href="/">Home</a>
+      <a class='btn pull-right' href="/">Home</a>
       <form action="/stores/<%= @store.id() %>" method="post">
         <input name="_method" type="hidden" value="delete">
-        <button class="btn btn-danger" type="submit">Remove Store</button>
+        <button class="btn" type="submit">Remove Store</button>
       </form>
     </div>
     <hr>
@@ -28,7 +28,7 @@
         <% @brands.each do |brand| %>
           <li><%= brand.name %>
             <form action="/stores/<%= @store.id() %>/brands/<%= brand.id() %>" method="post">
-              <button class = "btn" type="submit">Add Brand to Store</button>
+              <button class="btn" type="submit">Add Brand to Store</button>
             </form>
           </li>
         <% end %>
@@ -38,7 +38,7 @@
   </div>
   <div class="col-xs-3">
     <div>
-      <h4>This stores that carry this brand.</h4>
+      <h4>The stores that carry this brand.</h4>
       <ul>
         <% if @store.brands() %>
           <% @store.brands().each() do |brand| %>

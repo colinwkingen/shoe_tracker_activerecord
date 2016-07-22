@@ -34,7 +34,7 @@ li {
   list-style: none;
 }
 
-li:hover {
+.front-li:hover {
   color: #000;
   background-color: #666;
   text-align: center;
